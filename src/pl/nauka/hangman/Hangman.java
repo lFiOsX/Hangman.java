@@ -16,7 +16,7 @@ public class Hangman extends HangmanParametersAndMethods {
         System.out.println("                     |                                             |");
         System.out.println("                     | 1. Without Polish symbols.                  |");
         System.out.println("                     | 2. Without numbers.                         |");
-        System.out.println("                     | 3. 1 - 10 letters.                          |");
+        System.out.println("                     | 3. 1 - 10 chars.                            |");
         System.out.println("                     | 4. Have fun!                                |");
         System.out.println("                     |_____________________________________________|");
         System.out.println();
