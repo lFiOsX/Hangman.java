@@ -9,7 +9,7 @@ public class HangmanParametersAndMethods {
     private String userInputWord;
     private final List<Integer> indexOfLetter = new LinkedList();
     private int attempts;
-    private List<String> clearPasswordIndexesList = new ArrayList<>();
+    private final List<String> clearPasswordIndexesList = new ArrayList<>();
     private final Set<String> missedLetters = new HashSet<>();
     private String clearedPasswordIndexes;
     private boolean loopCondition = true;

@@ -9,7 +9,7 @@ public class Hangman extends HangmanParametersAndMethods {
     HangmanGraphic hangmanGraphic = new HangmanGraphic();
 
 
-    void rules (){
+    void rules() {
         System.out.println();
         System.out.println("                      _____________________________________________");
         System.out.println("                     |                   HANGMAN                   |");
@@ -62,7 +62,6 @@ public class Hangman extends HangmanParametersAndMethods {
         System.out.println();
         setUserInputWord(repeatIfEnteredDataIsEmpty(getUserInputWord()));
         getFirstIndexOfString(getUserInputWord());
-        System.out.println(getGuessedWord());
         boolean inputEqualsPassword = getGuessedWord().equals(getUserInputWord());
         if (inputEqualsPassword) {
             System.out.println();
@@ -117,8 +116,11 @@ public class Hangman extends HangmanParametersAndMethods {
         if (getClearPasswordIndexesList().get(0).equals(getClearPasswordIndexesList().get(1))) {
 
             addAttempts();
-            // zapisz wtedy nie trafioną litere w zmiennej i wyswietl ją, dodając kazdą nastepną
-            getMissedLetters().add(getUserInputLetter());
+
+            boolean saveMissedLetters = getGuessedWord().contains(getUserInputLetter());
+            if (!saveMissedLetters) {
+                getMissedLetters().add(getUserInputLetter());
+            }
         } else {
             System.out.println();
             System.out.println("trafiłeś!");
@@ -126,17 +128,6 @@ public class Hangman extends HangmanParametersAndMethods {
         }
         System.out.println();
         getClearPasswordIndexesList().remove(0);
-
-        /*
-         * wyżej dodaje hasło jakie zostało zmienione po wprowadzeniu literki
-         * i porównuje je z hasłem jakie było poprzednio zmienione po dodaniu literki (za pierwszym
-         * przejśćiem programu, w indexie - 0 zapisywane jest puste hasło, i jeśli nie zgadniemy literki
-         * to w arrayliście zostanie zapisane w indeksie - 0 puste hasło i w 1 indeksie również
-         * puste hasło.
-         * Niżej porównanie indeksu 0 i 1, i jesli beą sie zgadzac to zostanie cos zrobione
-         * i odwrotnie.
-         * Później usuwany jest  index - 0 po to aby zapisac kolejną próbe odgadnięcia hasło
-         */
 
         if (getClearedPasswordIndexes().equals(getGuessedWord())) {
             System.out.println();
