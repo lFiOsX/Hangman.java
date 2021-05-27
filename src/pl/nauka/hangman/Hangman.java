@@ -117,8 +117,11 @@ public class Hangman extends HangmanParametersAndMethods {
         if (getClearPasswordIndexesList().get(0).equals(getClearPasswordIndexesList().get(1))) {
 
             addAttempts();
-            // zapisz wtedy nie trafioną litere w zmiennej i wyswietl ją, dodając kazdą nastepną
-            getMissedLetters().add(getUserInputLetter());
+
+            boolean saveMissedLetters = getGuessedWord().contains(getUserInputLetter());
+            if(!saveMissedLetters) {
+                getMissedLetters().add(getUserInputLetter());
+            }
         } else {
             System.out.println();
             System.out.println("trafiłeś!");
